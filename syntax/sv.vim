@@ -53,6 +53,7 @@ let b:match_words .= ',\<interface\>:\<endinterface\>'
 let b:match_words .= ',\<property\>:\<endproperty\>'
 let b:match_words .= ',\<sequence\>:\<endsequence\>'
 let b:match_words .= ',\<task:^\s*\<endtask\>'
+" Following should always be at the beginning of a line
 let b:match_words .= ',^\s*\<\(macro\)\?module\>:^\s*\<endmodule\>'
 let b:match_words .= ',^\s*\<checker\>:^\s*\<endchecker\>'
 let b:match_words .= ',^\s*\<generate\>:^\s*\<endgenerate\>'
@@ -60,6 +61,7 @@ let b:match_words .= ',^\s*\<package:^\s*\<endpackage\>'
 let b:match_words .= ',^\s*\<primitive\>:^\s*\<endprimitive\>'
 let b:match_words .= ',^\s*\<program:^\s*\<endprogram\>'
 let b:match_words .= ',^\s*\<specify\>:^\s*\<endspecify\>'
+let b:match_words .= ',^\s*\<table\>:^\s*\<endtable\>'
 let b:match_words .= ',^\s*`if\(n\?def\)\?\>:^\s*`else\>:^\s*`endif\>'
 
 " Folding (also see match_words)

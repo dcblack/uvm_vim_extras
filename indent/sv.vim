@@ -20,6 +20,9 @@
 "       Added SystemVerilog specific indentations
 "     Amit Sethi - Thu Jul 27 12:09:48 IST 2006
 "       Changed conflicting function name
+"     David Black - Thu Aug 07 6:09:48 CDT 2013
+"       Added checker/endchecker, config/endconfig, generate/endgenerate,
+"       primitive/endprimitive, table/endtable
 "
 
 " Only load this indent file when no other was loaded.
@@ -31,8 +34,9 @@ let b:did_indent = 1
 setlocal indentexpr=GetVerilog_SystemVerilogIndent()
 setlocal indentkeys=!^F,o,O,0),0},=begin,=end,=join,=endcase,=join_any,=join_none
 setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify
-setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
-setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
+setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking,=endchecker
+setlocal indentkeys+==endconfig,=endinterface,=endgroup,=endprogram,=endtable
+setlocal indentkeys+==endproperty,=endgenerate,=endprimitive
 setlocal indentkeys+==`else,=`endif
 
 " Only define the function once.
@@ -102,10 +106,10 @@ function GetVerilog_SystemVerilogIndent()
     endif
   " Indent after function/task/class/package/sequence/clocking/
   " interface/covergroup/property/program blocks
-  elseif last_line =~ '^\s*\<\(function\|task\|class\|package\)\>' ||
-    \ last_line =~ '^\s*\<\(sequence\|clocking\|interface\)\>' ||
+  elseif last_line =~ '^\s*\<\(function\|task\|class\|package\|primitive\)\>' ||
+    \ last_line =~ '^\s*\<\(sequence\|clocking\|interface\|generate\|checker\|config\)\>' ||
     \ last_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>' ||
-    \ last_line =~ '^\s*\<\(property\|program\)\>'
+    \ last_line =~ '^\s*\<\(property\|program\|table\)\>'
     if last_line !~ '\<end\>\s*' . vlog_comment . '*$' ||
       \ last_line =~ '\(//\|/\*\).*\(;\|\<end\>\)\s*' . vlog_comment . '*$'
       let ind = ind + offset
@@ -195,9 +199,9 @@ function GetVerilog_SystemVerilogIndent()
   " De-indent on the end of the block
   " join/end/endcase/endfunction/endtask/endspecify
   if curr_line =~ '^\s*\<\(join\|join_any\|join_none\|\|end\|endcase\|while\)\>' ||
-      \ curr_line =~ '^\s*\<\(endfunction\|endtask\|endspecify\|endclass\)\>' ||
+      \ curr_line =~ '^\s*\<\(endfunction\|endtask\|endspecify\|endclass\|endconfig\)\>' ||
       \ curr_line =~ '^\s*\<\(endpackage\|endsequence\|endclocking\|endinterface\)\>' ||
-      \ curr_line =~ '^\s*\<\(endgroup\|endproperty\|endprogram\)\>' ||
+      \ curr_line =~ '^\s*\<\(endgenerate\|endgroup\|endprimitive\|endproperty\|endprogram\|endtable\)\>' ||
       \ curr_line =~ '^\s*}'
     let ind = ind - offset
     if vverb | echo vverb_str "De-indent the end of a block." | endif
@@ -211,7 +215,7 @@ function GetVerilog_SystemVerilogIndent()
   elseif curr_line =~ '^\s*\<begin\>'
     if last_line !~ '^\s*\<\(function\|task\|specify\|module\|class\|package\)\>' ||
       \ last_line !~ '^\s*\<\(sequence\|clocking\|interface\|covergroup\)\>' ||
-      \ last_line !~ '^\s*\<\(property\|program\)\>' &&
+      \ last_line !~ '^\s*\<\(property\|program\|table\|generate\|checker\|config\|primitive\)\>' &&
       \ last_line !~ '^\s*\()*\s*;\|)\+\)\s*' . vlog_comment . '*$' &&
       \ ( last_line =~
       \ '\<\(`\@<!if\|`\@<!else\|for\|case\%[[zx]]\|always\|initial\|do\|foreach\|randcase\|final\)\>' ||
