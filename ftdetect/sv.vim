@@ -9,6 +9,7 @@ if exists("b:did_ftplugin")
   finish
 endif
 
+" The following line could alternatively be copied into .vim/filetypes.sv
 autocmd BufRead,BufNewFile *.v,*.vh,*.sv,*.svh,*.vlog   set filetype=sv
 
 " Behaves just like Verilog
