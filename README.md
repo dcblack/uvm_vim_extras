@@ -17,6 +17,7 @@ Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations under the License.
+-------------------------------------------------------------------------------
 
 #Archive contents
 
@@ -29,6 +30,8 @@ specific language governing permissions and limitations under the License.
 
 #Installation
 
+**IMPORTANT:** Requires *Vim version **7.0** or better*
+
 The following apply to Linux/UNIX installations. Please adjust yourself if using
 Windows.
 
@@ -37,8 +40,39 @@ and type:
 
     :source %
 
-To install from GitHub, clone/update and then make the vimball. Follow above
-instructions.
+To learn more about vimball, use the vim command:
+
+    :help vimball
+
+Alternately, if you get the files in a tarball, be sure to install them under
+your vim person initialization directory. Per vim help:
+
+  Places for your personal initializations:
+
+    Linux/OS-X: $HOME/.vimrc or $HOME/.vim/vimrc
+    MS-Windows: $HOME/_vimrc, $HOME/vimfiles/vimrc or $VIM/_vimrc
+
+  RECOMMENDATION: Put all your Vim configuration stuff in the
+  $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
+  easy to copy it to another system.
+
+  The files are searched in the order specified above and only the first
+  one that is found is read.
+
+To install from GitHub, clone/update and then either make a vimball or follow
+non-vimball approach above. YMMV
+
+**NOTE:** If syntax coloring does not take effect when you open a file, it is
+because a mapping to the new `sv` syntax file may be missing. You may need to
+edit your $VIMHOME/filetype.vim or $VIMHOME/scripts.vim file to recognize your
+file. Alternately, you can enter a comment line of the format:
+/*vim: syntax=sv*/ as the the last line of your file, or manually issue the vim
+command:
+
+    :set syntax=sv
+
+whenever you edit a systemverilog file.
 
 -------
-The end
+The end 
+vim:syntax=markdown

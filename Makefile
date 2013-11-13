@@ -67,7 +67,7 @@ $(UVMFILES): $(shell grep -v '#' $(UVMFILES)) Makefile
 	touch $@
 
 $(UVMBALL): $(UVMFILES)
-	$(VIM_BIN) -c 'MkVimball! $@' -c quit $<
+	$(VIM_BIN) -c "let g:vimball_home='.'" -c '%MkVimball! $@' -c quit $<
 	@echo "Created $@"
 
 # The end
