@@ -13,7 +13,6 @@ highlight gold     ctermfg=Yellow      ctermbg=none      guifg=#b0b000     guibg
 highlight black    ctermfg=Black       ctermbg=none      guifg=Black       guibg=White gui=bold        term=bold          
 highlight grey     ctermfg=Gray        ctermbg=none      guifg=#808080     guibg=White gui=bold        term=bold          
 highlight Red      ctermfg=Red         ctermbg=none      guifg=Red                     gui=bold                           
-highlight boost    ctermfg=Blue        ctermbg=none      guifg=Blue        guibg=White gui=bold                           
-highlight purple   ctermfg=Magenta     ctermbg=none      guifg=Magenta     guibg=White gui=bold                           
+highlight boost    ctermfg=Blue        ctermbg=none      guifg=Blue        guibg=White gui=bold                           highlight purple   ctermfg=Magenta     ctermbg=none      guifg=Magenta     guibg=White gui=bold                           
 highlight dkpurple ctermfg=DarkMagenta ctermbg=none      guifg=DarkMagenta guibg=White gui=bold                           
 

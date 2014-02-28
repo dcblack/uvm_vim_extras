@@ -198,6 +198,8 @@ syn keyword svStatement  within
 
 syn keyword svStd std process semaphore mailbox
 
+syn keyword myMethod     copy_from clone to_string compare
+
 syn keyword uvm_enum     UVM_ALL_ON
 syn keyword uvm_enum     UVM_BIN
 syn keyword uvm_enum     UVM_CALL_HOOK
@@ -258,6 +260,8 @@ syn keyword uvm_class    uvm_phase
 syn keyword uvm_class    uvm_reg_sequence uvm_reg_block uvm_reg uvm_reg_field
 syn keyword uvm_seq      uvm_reg_mem_built_in_seq uvm_reg_hw_reset_seq, uvm_reg_bit_hash_seq
 syn keyword uvm_method   raise_objection drop_objection get_is_active
+syn keyword uvm_method   get_children get_num_children get_child get_first_child get_next_child
+syn keyword uvm_method   get_full_name get_parent has_child lookup get_depth
 
 syn keyword uvm_data     analysis_port req rsp seq_item_port seq_item_export p_sequencer
 syn keyword uvm_data     analysis_export starting_phase parent phase
@@ -449,6 +453,7 @@ if !filereadable(expand(b:color_path))
 else
 endif
 : highlight link svStd       sky
+: highlight link myMethod    dkpurple
 : highlight link uvm_enum    Constant
 : highlight link uvm_macros  gold
 : highlight link uvm_method  sky

@@ -50,8 +50,8 @@ syn match  logError       "^\(# *\)\?Severe.\+"
 syn match  logInfo        "^\s*\.\.\.preceding repeated \d\+ more time.\?"
 syn match  logInfo        "\<pass\>"
 syn match  logError       "\<failed\>"
-syn match  logError       "^\(# *\)\?Simulation FAILED.\+"
-syn match  logError       "^\(# *\)\?Simulation PASSED.\+"
+syn match  logError       "^\(# *\)\?\(Simulation\|Test\) FAILED.\+"
+syn match  logGood        "^\(# *\)\?\(Simulation\|Test\) PASSED.\+"
 syn match  logError       "^\(# *\)\?\s*[1-9]\d* error.\+" contains=filelocation
 syn match  logError       "^\(# *\)\?\s*[1-9]\d* fatal.\+"
 syn match  logError       "^\d\+ \w\?s: Error:.\+" contains=filelocation
@@ -129,6 +129,7 @@ if !exists("did_log_syntax_inits")
   hi  link  filelocation   logDarkBlue
   hi  link  logSep         logGreen
   hi  link  logSep         Separator  
+  hi  link  logGood        logDarkGreen
   hi  link  logInfo        logSuccess 
   hi  link  logData        Statement 
   hi  link  logFatal       logError
