@@ -30,7 +30,8 @@ specific language governing permissions and limitations under the License.
 
 #Installation
 
-**IMPORTANT:** Requires *Vim version **7.0** or better*
+**IMPORTANT:** Requires *Vim version **7.0** or better*, which may be obtained from
+[**VIm.org**](http:://www.vim.org)
 
 The following apply to Linux/UNIX installations. Please adjust yourself if using
 Windows.
