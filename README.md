@@ -7,6 +7,8 @@ licensed free for use by others under Apache 2.0 license. They augment
 SystemVerilog and UVM development.
 
 -------------------------------------------------------------------------------
+Copyright (C) 2015 David C Black
+
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License.  You may obtain a copy of the
 License at
