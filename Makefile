@@ -32,8 +32,8 @@ Find_executable:=$(firstword $(wildcard $(foreach pgm,$1,$(addsuffix /${pgm},$(s
 # Variables
 UVMFILES := uvm_files.txt
 HERE     := $(shell pwd)
-DATE     := $(shell date +%Y%m%d)
-UVMBALL  := $(HERE)/dcblack_uvm-$(DATE).vmb
+DATE     := $(shell date +%Y%m%d-%H%M)
+UVMBALL  := $(HERE)/$(USER)_uvm-$(DATE).vmb
 # Following works on both MacOS X and Linux
 VIM_BIN  := $(firstword $(wildcard /Applications/MacVim.app/Contents/MacOS/Vim $(call Find_executable,PROGRAM_NAME)))
 MAKEFILE_RULES := $(realpath $(lastword $(MAKEFILE_LIST)))
